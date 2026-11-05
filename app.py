@@ -13,11 +13,30 @@ st.caption(
 )
 
 
-# Cache DB connection
+# Cache DB connection and auto-initialize table if missing on Cloud
 @st.cache_resource
 def get_db_connection():
-  return duckdb.connect("analytics.duckdb")
-
+    con = duckdb.connect("analytics.duckdb")
+    
+    # Check if dim_customers exists; if not, build it from the CSV on the fly
+    tables = [row[0] for row in con.execute("SHOW TABLES").fetchall()]
+    if "dim_customers" not in tables:
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS main.dim_customers AS 
+            SELECT 
+                customer_id,
+                COUNT(order_id) AS total_orders,
+                SUM(amount) AS total_spend,
+                CAST(date_diff('day', MAX(order_date), CURRENT_DATE) AS INTEGER) AS days_since_last_order,
+                CASE 
+                    WHEN date_diff('day', MAX(order_date), CURRENT_DATE) > 90 THEN 'High Churn Risk'
+                    WHEN date_diff('day', MAX(order_date), CURRENT_DATE) > 30 THEN 'Medium Churn Risk'
+                    ELSE 'Active'
+                END AS churn_risk_status
+            FROM 'ecommerce_dataset_updated.csv'
+            GROUP BY customer_id
+        """)
+    return con
 
 con = get_db_connection()
 
