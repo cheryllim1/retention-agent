@@ -41,20 +41,32 @@ def get_db_connection():
 con = get_db_connection()
 
 
-# Direct function to query local Ollama server (Super fast, no hanging)
-def generate_with_ollama(prompt):
-  url = "http://localhost:11434/api/generate"
-  payload = {"model": "llama3", "prompt": prompt, "stream": False}
-  try:
-    response = requests.post(url, json=payload, timeout=160)
-    if response.status_code == 200:
-      return response.json().get("response", "Error parsing response.")
-    else:
-      return f"Ollama Error: {response.text}"
-  except Exception as e:
-    return (
-        f"Connection Error: Could not connect to Ollama. Is it running? ({e})"
-    )
+# Function to query Groq's free cloud API
+def generate_with_cloud_ai(prompt):
+    # Retrieve the API key from Streamlit secrets securely
+    api_key = st.secrets.get("GROQ_API_KEY", "")
+    if not api_key:
+        return "Error: GROQ_API_KEY not found in Streamlit Secrets."
+
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": "llama-3.1-8b-instant",  # Blazing fast, free-tier friendly model
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.7
+    }
+    
+    try:
+        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        if response.status_code == 200:
+            return response.json()["choices"][0]["message"]["content"]
+        else:
+            return f"API Error: {response.text}"
+    except Exception as e:
+        return f"Connection Error: {e}"
 
 
 # Sidebar Filters
@@ -84,14 +96,14 @@ if not df.empty:
 
   cust_data = df[df["customer_id"] == selected_customer].iloc[0]
 
-  if st.button("Generate Personalized Win-Back Email"):
-    with st.spinner("Local Llama 3 LLM drafting retention copy..."):
-      prompt = f"""
-            You are an expert MarTech Retention Specialist. Write a short win-back email for VIP Customer {cust_data['customer_id']} 
-     who has spent Rs.{cust_data['total_spend']:.2f} and been inactive for {cust_data['days_since_last_order']} days. 
-     Include a 15% discount code VIP15. Keep it concise and end email with a CTA.
-            """
-      email_copy = generate_with_ollama(prompt)
+ if st.button("Generate Personalized Win-Back Email"):
+    with st.spinner("Generating AI retention copy via Groq..."):
+        prompt = f"""
+            You are an expert MarTech Retention Specialist. Write a short win-back email for Customer {cust_data['customer_id']} 
+            who has spent Rs.{cust_data['total_spend']:.2f} and been inactive for {cust_data['days_since_last_order']} days. 
+            Include a 15% discount code VIP15. Keep it concise and end email with a CTA.
+        """
+        email_copy = generate_with_cloud_ai(prompt) # <--- Updated function call
 
     st.success("Campaign Drafted!")
     st.text_area("Generated Campaign Copy", email_copy, height=300)
