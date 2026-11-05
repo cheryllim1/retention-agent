@@ -24,17 +24,17 @@ def get_db_connection():
         con.execute("""
             CREATE TABLE IF NOT EXISTS main.dim_customers AS 
             SELECT 
-                customer_id,
-                COUNT(order_id) AS total_orders,
-                SUM(amount) AS total_spend,
-                CAST(date_diff('day', MAX(order_date), CURRENT_DATE) AS INTEGER) AS days_since_last_order,
+                User_ID AS customer_id,
+                COUNT(*) AS total_orders,
+                SUM("Final_Price(Rs.)") AS total_spend,
+                CAST(date_diff('day', MAX(CAST(Purchase_Date AS DATE)), CURRENT_DATE) AS INTEGER) AS days_since_last_order,
                 CASE 
-                    WHEN date_diff('day', MAX(order_date), CURRENT_DATE) > 90 THEN 'High Churn Risk'
-                    WHEN date_diff('day', MAX(order_date), CURRENT_DATE) > 30 THEN 'Medium Churn Risk'
+                    WHEN date_diff('day', MAX(CAST(Purchase_Date AS DATE)), CURRENT_DATE) > 90 THEN 'High Churn Risk'
+                    WHEN date_diff('day', MAX(CAST(Purchase_Date AS DATE)), CURRENT_DATE) > 30 THEN 'Medium Churn Risk'
                     ELSE 'Active'
                 END AS churn_risk_status
-            FROM 'ecommerce_dataset_updated.csv'
-            GROUP BY customer_id
+            FROM read_csv_auto('ecommerce_dataset_updated.csv', header=True)
+            GROUP BY User_ID
         """)
     return con
 
