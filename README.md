@@ -4,11 +4,11 @@ An enterprise-grade, $0-stack customer churn prediction and automated retention 
 
 Tech Stack
 Data Storage & Modeling: DuckDB & dbt-core
-Local LLM: Ollama via direct Rest API
+Cloud LLM: Groq API (`openai/gpt-oss-20b`)
 Interactive UI: Stramlit
 Language: Python
 
 Architecture
 Semantic Layer: Queries cleaned customer dimensions and churn risk status from DuckDB
 Agentic Layer: Dynamically injects customer lifetime spend and inactivity metrics into prompt templates
-Execution Layer: Triggers local Llama 3 generation to output personalised win-back email copy with discount incentives with a CTA at the end of the emai. 
+Execution Layer: Triggers local Llama 3 generation to output personalised win-back email copy with discount incentives with a CTA at the end of the email. 
