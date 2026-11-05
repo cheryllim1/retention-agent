@@ -89,21 +89,21 @@ st.subheader("At-Risk Customer Segment")
 st.dataframe(df, width="stretch")
 
 if not df.empty:
-  st.subheader("🤖 Trigger Agentic Retention Campaign")
-  selected_customer = st.selectbox(
-      "Select Customer ID to Target", df["customer_id"]
-  )
+    st.subheader("Trigger Agentic Retention Campaign")
+    selected_customer = st.selectbox(
+        "Select Customer ID to Target", df["customer_id"]
+    )
+    
+    cust_data = df[df["customer_id"] == selected_customer].iloc[0]
 
-  cust_data = df[df["customer_id"] == selected_customer].iloc[0]
+    if st.button("Generate Personalized Win-Back Email"):
+        with st.spinner("Generating AI retention copy via Groq..."):
+            prompt = f"""
+                You are an expert MarTech Retention Specialist. Write a short win-back email for Customer {cust_data['customer_id']} 
+                who has spent Rs.{cust_data['total_spend']:.2f} and been inactive for {cust_data['days_since_last_order']} days. 
+                Include a 15% discount code VIP15. Keep it concise and end email with a CTA.
+            """
+            email_copy = generate_with_cloud_ai(prompt)
 
- if st.button("Generate Personalized Win-Back Email"):
-    with st.spinner("Generating AI retention copy via Groq..."):
-        prompt = f"""
-            You are an expert MarTech Retention Specialist. Write a short win-back email for Customer {cust_data['customer_id']} 
-            who has spent Rs.{cust_data['total_spend']:.2f} and been inactive for {cust_data['days_since_last_order']} days. 
-            Include a 15% discount code VIP15. Keep it concise and end email with a CTA.
-        """
-        email_copy = generate_with_cloud_ai(prompt) # <--- Updated function call
-
-    st.success("Campaign Drafted!")
-    st.text_area("Generated Campaign Copy", email_copy, height=300)
+        st.success("Campaign Drafted!")
+        st.text_area("Generated Campaign Copy", email_copy, height=300)
