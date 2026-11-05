@@ -54,7 +54,7 @@ def generate_with_cloud_ai(prompt):
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "llama-3.1-8b-instant",  # Blazing fast, free-tier friendly model
+        "model": "llama-3.3-70b-versatile",  # Blazing fast, free-tier friendly model
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7
     }
