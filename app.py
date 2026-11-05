@@ -9,7 +9,7 @@ st.set_page_config(
 
 st.title("⚡ MarTech Autonomous Retention & ERP Agent")
 st.caption(
-    "Powered by DuckDB Semantic Layer, dbt, and Local Llama 3 Inference"
+    "Prototype by CHERYL LIM"
 )
 
 
@@ -54,7 +54,7 @@ def generate_with_cloud_ai(prompt):
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "llama-3.3-70b-versatile",  # Blazing fast, free-tier friendly model
+        "model": "openai/gpt-oss-20b",  # Blazing fast, free-tier friendly model
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7
     }
