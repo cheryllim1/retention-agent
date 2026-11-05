@@ -12,3 +12,5 @@ Architecture
 Semantic Layer: Queries cleaned customer dimensions and churn risk status from DuckDB
 Agentic Layer: Dynamically injects customer lifetime spend and inactivity metrics into prompt templates
 Execution Layer: Triggers local Llama 3 generation to output personalised win-back email copy with discount incentives with a CTA at the end of the email. 
+
+Access Streamlit  here: https://retention-agent-e4sryf9l7z6nzzvus9soym.streamlit.app/
