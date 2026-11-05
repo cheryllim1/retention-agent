@@ -1,0 +1,75 @@
+[0m19:35:15.664641 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C49DE02E60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C49F633A00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C49F6337F0>]}
+
+
+============================== 19:35:15.679681 | e35b61d9-abeb-4cc5-bcce-6d70109e7b0e ==============================
+[0m19:35:15.679681 [info ] [MainThread]: Running with dbt=1.12.6
+[0m19:35:15.685371 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'version_check': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\AllIT\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init churn_analytics', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m19:35:15.780273 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\AllIT\.dbt
+[0m19:35:15.793226 [debug] [MainThread]: Starter project path: C:\Users\AllIT\anaconda3\envs\churn_agent\lib\site-packages\dbt\include\starter_project
+[0m19:35:15.881480 [info ] [MainThread]: Setting up your profile.
+[0m19:38:19.507882 [info ] [MainThread]: Profile churn_analytics written to C:\Users\AllIT\.dbt\profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m19:38:19.517102 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m19:38:19.520406 [info ] [MainThread]: dbt version: 1.12.6
+[0m19:38:19.524636 [info ] [MainThread]: python version: 3.10.22
+[0m19:38:19.527542 [info ] [MainThread]: python path: C:\Users\AllIT\anaconda3\envs\churn_agent\python.exe
+[0m19:38:19.529703 [info ] [MainThread]: os info: Windows-10-10.0.26200-SP0
+[0m19:38:19.919254 [info ] [MainThread]: Using profiles dir at C:\Users\AllIT\.dbt
+[0m19:38:19.922351 [info ] [MainThread]: Using profiles.yml file at C:\Users\AllIT\.dbt\profiles.yml
+[0m19:38:19.924566 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\dbt_project.yml
+[0m19:38:19.941601 [info ] [MainThread]: adapter type: duckdb
+[0m19:38:19.943655 [info ] [MainThread]: adapter version: 1.11.1
+[0m19:38:20.703303 [info ] [MainThread]: Configuration:
+[0m19:38:20.708500 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m19:38:20.713010 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m19:38:20.717582 [info ] [MainThread]: Required dependencies:
+[0m19:38:20.722778 [debug] [MainThread]: Executing "git --help"
+[0m19:38:20.801549 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m19:38:20.806482 [info ] [MainThread]: Connection:
+[0m19:38:20.810010 [info ] [MainThread]:   database: dev
+[0m19:38:20.815832 [info ] [MainThread]:   schema: main
+[0m19:38:20.818913 [info ] [MainThread]:   path: dev.duckdb
+[0m19:38:20.822817 [info ] [MainThread]:   config_options: None
+[0m19:38:20.824872 [info ] [MainThread]:   extensions: None
+[0m19:38:20.828923 [info ] [MainThread]:   settings: {}
+[0m19:38:20.831910 [info ] [MainThread]:   external_root: .
+[0m19:38:20.834902 [info ] [MainThread]:   use_credential_provider: None
+[0m19:38:20.836411 [info ] [MainThread]:   attach: None
+[0m19:38:20.840883 [info ] [MainThread]:   filesystems: None
+[0m19:38:20.842963 [info ] [MainThread]:   remote: None
+[0m19:38:20.844975 [info ] [MainThread]:   plugins: None
+[0m19:38:20.846486 [info ] [MainThread]:   disable_transactions: False
+[0m19:38:20.849642 [info ] [MainThread]: Registered adapter: duckdb=1.11.1
+[0m19:38:21.861576 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m19:38:22.810449 [debug] [MainThread]: Using duckdb connection "debug"
+[0m19:38:22.813037 [debug] [MainThread]: On debug: select 1 as id
+[0m19:38:22.814079 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:38:22.879986 [debug] [MainThread]: SQL status: OK in 0.066 seconds
+[0m19:38:22.883156 [debug] [MainThread]: On debug: Close
+[0m19:38:22.885249 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m19:38:22.889809 [info ] [MainThread]: [31m1 check failed:[0m
+[0m19:38:22.892137 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m19:38:22.894287 [info ] [MainThread]: Your new dbt project "churn_analytics" was created!
+Initialized new project in C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\churn_analytics
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:38:22.896955 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m19:38:22.900955 [debug] [MainThread]: Command `dbt init` succeeded at 19:38:22.899956 after 187.78 seconds
+[0m19:38:22.901950 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m19:38:22.903946 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C49DE02E60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C4A085AB60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C49F6337C0>]}
+[0m19:38:22.907556 [debug] [MainThread]: Flushing usage events
+[0m19:38:24.460945 [debug] [MainThread]: An error was encountered while trying to flush usage events

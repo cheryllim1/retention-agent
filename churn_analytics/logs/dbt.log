@@ -1,0 +1,316 @@
+[0m20:00:01.486859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002616E726D40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026170E5D300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026170E5F3A0>]}
+
+
+============================== 20:00:01.504968 | 1c4e1333-7dbd-44af-8dcb-81f1f74774c4 ==============================
+[0m20:00:01.504968 [info ] [MainThread]: Running with dbt=1.12.6
+[0m20:00:01.510938 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\AllIT\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'log_path': 'C:\\Users\\AllIT\\Desktop\\CL\\CL\\PAM\\AI Partnerships Project 2\\churn_analytics\\logs'}
+[0m20:00:03.260983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026170CA0E20>]}
+[0m20:00:03.601869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002617204F7F0>]}
+[0m20:00:03.615241 [info ] [MainThread]: Registered adapter: duckdb=1.11.1
+[0m20:00:04.672668 [debug] [MainThread]: checksum: f79dc56504cf89e5c6710aba8c60f8785e9775e42214a093f07230d6972d8b99, vars: {}, profile: churn_analytics, target: dev, version: 1.12.6
+[0m20:00:04.678290 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m20:00:04.680497 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261720A2FE0>]}
+[0m20:00:11.912925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026172AD7370>]}
+[0m20:00:12.377338 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\manifest.json
+[0m20:00:12.395009 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\semantic_manifest.json
+[0m20:00:12.544757 [debug] [MainThread]: Wrote artifact OsiDocument to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\osi_document.json
+[0m20:00:12.604396 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002617209AE00>]}
+[0m20:00:12.608540 [info ] [MainThread]: Found 3 models, 4 data tests, 511 macros
+[0m20:00:12.610536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002617209B250>]}
+[0m20:00:12.618578 [info ] [MainThread]: 
+[0m20:00:12.622467 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m20:00:12.624654 [info ] [MainThread]: 
+[0m20:00:12.626880 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:00:12.650789 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_analytics'
+[0m20:00:13.716878 [debug] [ThreadPool]: Using duckdb connection "list_analytics"
+[0m20:00:13.718871 [debug] [ThreadPool]: On list_analytics: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "connection_name": "list_analytics"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"analytics"'
+    
+  
+  
+[0m20:00:13.720865 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:00:13.815473 [debug] [ThreadPool]: SQL status: OK in 0.094 seconds
+[0m20:00:13.820964 [debug] [ThreadPool]: On list_analytics: Close
+[0m20:00:13.823650 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_analytics, now create_analytics_main)
+[0m20:00:13.826121 [debug] [ThreadPool]: Creating schema "database: "analytics"
+schema: "main"
+"
+[0m20:00:13.852772 [debug] [ThreadPool]: Using duckdb connection "create_analytics_main"
+[0m20:00:13.853808 [debug] [ThreadPool]: On create_analytics_main: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "connection_name": "create_analytics_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='analytics'
+        and type != 'duckdb'
+    
+  
+[0m20:00:13.856001 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:00:13.859284 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m20:00:13.862961 [debug] [ThreadPool]: Using duckdb connection "create_analytics_main"
+[0m20:00:13.864979 [debug] [ThreadPool]: On create_analytics_main: BEGIN
+[0m20:00:13.867000 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:00:13.869135 [debug] [ThreadPool]: Using duckdb connection "create_analytics_main"
+[0m20:00:13.870282 [debug] [ThreadPool]: On create_analytics_main: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "connection_name": "create_analytics_main"} */
+
+    
+    
+        create schema if not exists "analytics"."main"
+    
+[0m20:00:13.873959 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:00:13.877264 [debug] [ThreadPool]: On create_analytics_main: COMMIT
+[0m20:00:13.878308 [debug] [ThreadPool]: Using duckdb connection "create_analytics_main"
+[0m20:00:13.880409 [debug] [ThreadPool]: On create_analytics_main: COMMIT
+[0m20:00:13.881438 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:00:13.883967 [debug] [ThreadPool]: On create_analytics_main: Close
+[0m20:00:13.891456 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_analytics_main'
+[0m20:00:13.909759 [debug] [ThreadPool]: Using duckdb connection "list_analytics_main"
+[0m20:00:13.910808 [debug] [ThreadPool]: On list_analytics_main: BEGIN
+[0m20:00:13.913473 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:00:13.915521 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:00:13.916888 [debug] [ThreadPool]: Using duckdb connection "list_analytics_main"
+[0m20:00:13.918016 [debug] [ThreadPool]: On list_analytics_main: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "connection_name": "list_analytics_main"} */
+select
+      'analytics' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'analytics'
+  
+[0m20:00:13.934996 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m20:00:13.939177 [debug] [ThreadPool]: On list_analytics_main: ROLLBACK
+[0m20:00:13.941271 [debug] [ThreadPool]: On list_analytics_main: Close
+[0m20:00:13.943906 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026170EF26E0>]}
+[0m20:00:13.946507 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:00:13.947550 [debug] [MainThread]: On master: BEGIN
+[0m20:00:13.949956 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:00:13.952609 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m20:00:13.954639 [debug] [MainThread]: On master: COMMIT
+[0m20:00:13.955639 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:00:13.957634 [debug] [MainThread]: On master: COMMIT
+[0m20:00:13.959142 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:00:13.961160 [debug] [MainThread]: On master: Close
+[0m20:00:13.976213 [debug] [Thread-1 (]: Began running node model.churn_analytics.dim_customers
+[0m20:00:13.978480 [info ] [Thread-1 (]: 1 of 3 START sql view model main.dim_customers ................................. [RUN]
+[0m20:00:13.983340 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.churn_analytics.dim_customers'
+[0m20:00:13.986473 [debug] [Thread-1 (]: Began compiling node model.churn_analytics.dim_customers
+[0m20:00:14.008161 [debug] [Thread-1 (]: Writing injected SQL for node "model.churn_analytics.dim_customers"
+[0m20:00:14.013754 [debug] [Thread-1 (]: Began executing node model.churn_analytics.dim_customers
+[0m20:00:14.018972 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.021075 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.dim_customers"} */
+select database_name, type from duckdb_databases()
+[0m20:00:14.022587 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m20:00:14.025778 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m20:00:14.029011 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.031113 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.dim_customers"} */
+
+                    select table_name, constraint_type from duckdb_constraints()
+                    where lower(database_name) = lower('analytics')
+                      and lower(schema_name) = lower('main')
+                      and constraint_type in ('PRIMARY KEY', 'UNIQUE', 'FOREIGN KEY')
+                    
+[0m20:00:14.036277 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m20:00:14.142484 [debug] [Thread-1 (]: Writing runtime sql for node "model.churn_analytics.dim_customers"
+[0m20:00:14.147094 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.149357 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: BEGIN
+[0m20:00:14.152638 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m20:00:14.153674 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.156022 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.dim_customers"} */
+
+  
+  create view "analytics"."main"."dim_customers__dbt_tmp" as (
+    WITH customer_orders AS (
+    SELECT
+        "User_ID" AS customer_id,
+        MAX(CAST("Purchase_Date" AS DATE)) AS last_purchase_date,
+        COUNT(*) AS total_orders,
+        SUM(CAST("Final_Price(Rs.)" AS DOUBLE)) AS total_spend,
+        AVG(CAST("Discount (%)" AS DOUBLE)) AS avg_discount_used
+    FROM raw_orders
+    WHERE "User_ID" IS NOT NULL
+    GROUP BY "User_ID"
+)
+
+SELECT
+    customer_id,
+    total_orders,
+    ROUND(total_spend, 2) AS total_spend,
+    ROUND(avg_discount_used, 2) AS avg_discount_used,
+    last_purchase_date,
+    DATEDIFF('day', last_purchase_date, (SELECT MAX(CAST("Purchase_Date" AS DATE)) FROM raw_orders)) AS days_since_last_order,
+    CASE 
+        WHEN DATEDIFF('day', last_purchase_date, (SELECT MAX(CAST("Purchase_Date" AS DATE)) FROM raw_orders)) > 180 THEN 'High Churn Risk'
+        WHEN DATEDIFF('day', last_purchase_date, (SELECT MAX(CAST("Purchase_Date" AS DATE)) FROM raw_orders)) BETWEEN 90 AND 180 THEN 'Medium Churn Risk'
+        ELSE 'Active'
+    END AS churn_risk_status
+FROM customer_orders
+  );
+
+[0m20:00:14.162777 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m20:00:14.182825 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.184838 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.dim_customers"} */
+alter view "analytics"."main"."dim_customers__dbt_tmp" rename to "dim_customers"
+[0m20:00:14.187972 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.226054 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: COMMIT
+[0m20:00:14.228107 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.230265 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: COMMIT
+[0m20:00:14.236993 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m20:00:14.255366 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.dim_customers"
+[0m20:00:14.257382 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.dim_customers"} */
+
+      drop view if exists "analytics"."main"."dim_customers__dbt_backup" cascade
+    
+[0m20:00:14.260725 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.272759 [debug] [Thread-1 (]: On model.churn_analytics.dim_customers: Close
+[0m20:00:14.281077 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002616CDA6410>]}
+[0m20:00:14.284627 [info ] [Thread-1 (]: 1 of 3 OK created sql view model main.dim_customers ............................ [[32mOK[0m in 0.29s]
+[0m20:00:14.287745 [debug] [Thread-1 (]: Finished running node model.churn_analytics.dim_customers
+[0m20:00:14.289834 [debug] [Thread-1 (]: Began running node model.churn_analytics.my_first_dbt_model
+[0m20:00:14.290980 [info ] [Thread-1 (]: 2 of 3 START sql table model main.my_first_dbt_model ........................... [RUN]
+[0m20:00:14.294606 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.churn_analytics.dim_customers, now model.churn_analytics.my_first_dbt_model)
+[0m20:00:14.296655 [debug] [Thread-1 (]: Began compiling node model.churn_analytics.my_first_dbt_model
+[0m20:00:14.305535 [debug] [Thread-1 (]: Writing injected SQL for node "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.312650 [debug] [Thread-1 (]: Began executing node model.churn_analytics.my_first_dbt_model
+[0m20:00:14.484257 [debug] [Thread-1 (]: Writing runtime sql for node "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.489330 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.491325 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: BEGIN
+[0m20:00:14.493841 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:00:14.496835 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m20:00:14.499006 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.501007 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_first_dbt_model"} */
+
+    
+
+    create  table
+      "analytics"."main"."my_first_dbt_model__dbt_tmp"
+  
+    
+    as (
+      /*
+    Welcome to your first dbt model!
+    Did you know that you can also configure models directly within SQL files?
+    This will override configurations stated in dbt_project.yml
+
+    Try changing "table" to "view" below
+*/
+
+
+
+with source_data as (
+
+    select 1 as id
+    union all
+    select null as id
+
+)
+
+select *
+from source_data
+
+/*
+    Uncomment the line below to remove records with null `id` values
+*/
+
+-- where id is not null
+    );
+    
+  
+[0m20:00:14.512647 [debug] [Thread-1 (]: SQL status: OK in 0.008 seconds
+[0m20:00:14.519812 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.520810 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_first_dbt_model"} */
+alter table "analytics"."main"."my_first_dbt_model__dbt_tmp" rename to "my_first_dbt_model"
+[0m20:00:14.524379 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.550776 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: COMMIT
+[0m20:00:14.553357 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.555405 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: COMMIT
+[0m20:00:14.559555 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m20:00:14.567154 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_first_dbt_model"
+[0m20:00:14.569148 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_first_dbt_model"} */
+
+      drop table if exists "analytics"."main"."my_first_dbt_model__dbt_backup" cascade
+    
+[0m20:00:14.571350 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.576936 [debug] [Thread-1 (]: On model.churn_analytics.my_first_dbt_model: Close
+[0m20:00:14.578987 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261727565F0>]}
+[0m20:00:14.581202 [info ] [Thread-1 (]: 2 of 3 OK created sql table model main.my_first_dbt_model ...................... [[32mOK[0m in 0.28s]
+[0m20:00:14.587145 [debug] [Thread-1 (]: Finished running node model.churn_analytics.my_first_dbt_model
+[0m20:00:14.590137 [debug] [Thread-1 (]: Began running node model.churn_analytics.my_second_dbt_model
+[0m20:00:14.593709 [info ] [Thread-1 (]: 3 of 3 START sql view model main.my_second_dbt_model ........................... [RUN]
+[0m20:00:14.596707 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.churn_analytics.my_first_dbt_model, now model.churn_analytics.my_second_dbt_model)
+[0m20:00:14.598908 [debug] [Thread-1 (]: Began compiling node model.churn_analytics.my_second_dbt_model
+[0m20:00:14.608833 [debug] [Thread-1 (]: Writing injected SQL for node "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.614578 [debug] [Thread-1 (]: Began executing node model.churn_analytics.my_second_dbt_model
+[0m20:00:14.627673 [debug] [Thread-1 (]: Writing runtime sql for node "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.631128 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.634186 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: BEGIN
+[0m20:00:14.636510 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:00:14.638571 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m20:00:14.640618 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.642629 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_second_dbt_model"} */
+
+  
+  create view "analytics"."main"."my_second_dbt_model__dbt_tmp" as (
+    -- Use the `ref` function to select from other models
+
+select *
+from "analytics"."main"."my_first_dbt_model"
+where id = 1
+  );
+
+[0m20:00:14.645167 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.654786 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.656785 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_second_dbt_model"} */
+alter view "analytics"."main"."my_second_dbt_model__dbt_tmp" rename to "my_second_dbt_model"
+[0m20:00:14.659779 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.665347 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: COMMIT
+[0m20:00:14.669337 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.672328 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: COMMIT
+[0m20:00:14.675924 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m20:00:14.682394 [debug] [Thread-1 (]: Using duckdb connection "model.churn_analytics.my_second_dbt_model"
+[0m20:00:14.684516 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: /* {"app": "dbt", "dbt_version": "1.12.6", "profile_name": "churn_analytics", "target_name": "dev", "node_id": "model.churn_analytics.my_second_dbt_model"} */
+
+      drop view if exists "analytics"."main"."my_second_dbt_model__dbt_backup" cascade
+    
+[0m20:00:14.687514 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:00:14.691503 [debug] [Thread-1 (]: On model.churn_analytics.my_second_dbt_model: Close
+[0m20:00:14.694010 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c4e1333-7dbd-44af-8dcb-81f1f74774c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000261729EFF70>]}
+[0m20:00:14.697007 [info ] [Thread-1 (]: 3 of 3 OK created sql view model main.my_second_dbt_model ...................... [[32mOK[0m in 0.10s]
+[0m20:00:14.701241 [debug] [Thread-1 (]: Finished running node model.churn_analytics.my_second_dbt_model
+[0m20:00:14.705901 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:00:14.707930 [debug] [MainThread]: On master: BEGIN
+[0m20:00:14.710014 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:00:14.711063 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m20:00:14.713643 [debug] [MainThread]: On master: COMMIT
+[0m20:00:14.715834 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:00:14.717828 [debug] [MainThread]: On master: COMMIT
+[0m20:00:14.720897 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:00:14.722405 [debug] [MainThread]: On master: Close
+[0m20:00:14.724719 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:00:14.725763 [debug] [MainThread]: Connection 'create_analytics_main' was properly closed.
+[0m20:00:14.727814 [debug] [MainThread]: Connection 'list_analytics_main' was properly closed.
+[0m20:00:14.728812 [debug] [MainThread]: Connection 'model.churn_analytics.my_second_dbt_model' was properly closed.
+[0m20:00:14.731104 [info ] [MainThread]: 
+[0m20:00:14.734165 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 2.10 seconds (2.10s).
+[0m20:00:14.739615 [debug] [MainThread]: Command end result
+[0m20:00:14.913840 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\manifest.json
+[0m20:00:14.928840 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\semantic_manifest.json
+[0m20:00:14.945101 [debug] [MainThread]: Wrote artifact OsiDocument to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\osi_document.json
+[0m20:00:14.973780 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\AllIT\Desktop\CL\CL\PAM\AI Partnerships Project 2\churn_analytics\target\run_results.json
+[0m20:00:14.975948 [info ] [MainThread]: 
+[0m20:00:14.977963 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:00:14.980264 [info ] [MainThread]: 
+[0m20:00:14.983793 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3
+[0m20:00:14.988795 [debug] [MainThread]: Command `dbt run` succeeded at 20:00:14.988795 after 14.06 seconds
+[0m20:00:14.990791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002616E726D40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002617201F5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002616DF21300>]}
+[0m20:00:14.992301 [debug] [MainThread]: Flushing usage events
+[0m20:00:16.456935 [debug] [MainThread]: An error was encountered while trying to flush usage events
